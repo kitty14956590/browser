@@ -1,0 +1,15 @@
+*.bin
+*.iso
+*.o
+*.elf
+*.log
+build/
+build/*
+.vscode/*
+.vscode/
+*.vsix
+*.json
+.git
+.vscode
+build
+

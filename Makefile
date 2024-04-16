@@ -26,4 +26,4 @@ build: ${OBJECTS}
 	${CC} -o ${OUTPUT} $^
 
 clean:
-	rm -rf ${BUILD_DIR}
+	rm -rf ${BUILD_DIR} ${OUTPUT}
