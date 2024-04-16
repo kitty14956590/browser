@@ -2,6 +2,7 @@
 #include <html.h>
 
 int main(int argc, char * argv[]) {
-	element_t * element = parse_element("<p>");
-	printf("%p\n", element);
+	char * my_terrible_test_document = "<p>Hi</p>";
+	document_t * document = parse_document(my_terrible_test_document);
+	printf("%p\n", document);
 }
