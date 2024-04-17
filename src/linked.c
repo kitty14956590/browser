@@ -1,33 +1,23 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <alloc.h>
 #include <linked.h>
+#include <test.h>
 
 linked_t * alloc_linked() {
-	linked_t * linked = malloc(sizeof(linked_t));
-	if (!linked) {
-		printf("FUCK\n");
-		exit(-1);
-	}
-	return linked;
+	return (linked_t *) malloc_zero(sizeof(linked_t));
 }
 
-linked_t * alloc_list(int length) {
-	linked_t * root = alloc_linked();
-	linked_t * top = root;
-	root->ptr = (linked_t *) 0;
-	root->next = (linked_t *) 0;
-	if (!length) {
-		return root; // yayy !! here you go !!
+void append_linked(linked_t * list, linked_t * stuff) {
+	while (list->next) {
+		list = list->next;
 	}
-	while (length--) {
-		top->next = alloc_linked();
-		top = top->next;
-	}
-	top->next = (linked_t *) 0;
-	return root;
+	list->next = stuff;
 }
 
-int iterate_list(linked_callback_t callback, linked_t * list) {
+// used to be here but it is useless alloc_list()
+
+int iterate_list(linked_t * list, linked_callback_t callback) {
 	while (list) {
 		int retval = callback(list);
 		if (retval) {
@@ -36,4 +26,10 @@ int iterate_list(linked_callback_t callback, linked_t * list) {
 		list = list->next;
 	}
 	return 0;
+}
+
+void linked_test() {
+	linked_t * linked = alloc_linked();
+	int status = !!linked;
+	printf("alloc_linked(): %s\n", test_bool_name(status));
 }
