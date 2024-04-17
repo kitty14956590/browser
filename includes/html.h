@@ -1,8 +1,10 @@
-typedef struct {} document_t;
+#pragma once
+
+#include <tree.h>
 
 typedef struct {
 	char * tag;
 } element_t;
 
 element_t * parse_element(char * html);
-document_t * parse_document(char * html);
+tree_t * parse_document(char * html);

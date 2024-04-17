@@ -23,6 +23,6 @@ int main(int argc, char * argv[]) {
 
 
 	char * my_terrible_test_document = "<p>Hi</p>";
-	document_t * document = parse_document(my_terrible_test_document);
+	tree_t * document = parse_document(my_terrible_test_document);
 	printf("Document: %p\n", document);
 }

@@ -1,4 +1,10 @@
-typedef struct tree {
+#pragma once
+
+#include <linked.h>
+
+typedef struct {
 	void * ptr;
-	struct tree * children;
+	linked_t * children;
 } tree_t;
+
+tree_t * alloc_tree();

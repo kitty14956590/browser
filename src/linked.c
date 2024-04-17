@@ -13,6 +13,7 @@ void append_linked(linked_t * list, linked_t * stuff) {
 		list = list->next;
 	}
 	list->next = stuff;
+	stuff->back = list;
 }
 
 // used to be here but it is useless alloc_list()
