@@ -30,6 +30,10 @@ int iterate_list(linked_t * list, linked_callback_t callback) {
 
 void linked_test() {
 	linked_t * linked = alloc_linked();
-	int status = !!linked;
+	linked_t * linked2 = alloc_linked();
+	int status = linked && linked2;
 	printf("alloc_linked(): %s\n", test_bool_name(status));
+	append_linked(linked, linked2);
+	status = (linked->next == linked2) && (linked2->back == linked);
+	printf("append_linked(): %s\n", test_bool_name(status));
 }
