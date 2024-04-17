@@ -20,7 +20,7 @@ mkdir:
 	mkdir -p ${BUILD_DIR}
 
 $(BUILD_DIR)/%.o: src/%.c
-	$(CC) $(CCFLAGS) -D KERNEL_SOURCE $^ -c -o $@
+	$(CC) $(CCFLAGS) $^ -c -o $@
 
 build: ${OBJECTS}
 	${CC} -o ${OUTPUT} $^
