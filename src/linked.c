@@ -1,11 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <alloc.h>
 #include <linked.h>
 #include <test.h>
 
 linked_t * alloc_linked() {
-	return (linked_t *) malloc_zero(sizeof(linked_t));
+	return (linked_t *) calloc(1, sizeof(linked_t));
 }
 
 void append_linked(linked_t * list, linked_t * stuff) {

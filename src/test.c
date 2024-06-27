@@ -1,5 +1,4 @@
 #include <linked.h>
-#include <alloc.h>
 
 char * test_bool_name(int bool) {
 	static char * true = "\033[32;1mpassed\033[0m";
@@ -8,7 +7,6 @@ char * test_bool_name(int bool) {
 }
 
 int unit_test_everything() {
-	alloc_test();
 	linked_test();
 	return 0;
 }
